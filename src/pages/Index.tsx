@@ -92,6 +92,53 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Block 3 — Почему Ягода */}
+      <section className="py-20 md:py-28">
+        <div className="container max-w-6xl mx-auto space-y-14">
+          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center max-w-4xl mx-auto leading-tight">
+            «Ягода» — это когда фрукт успевает дозреть в&nbsp;тепле,
+            а&nbsp;не&nbsp;в&nbsp;контейнере
+          </h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+            {[
+              { emoji: '✈️', title: 'Авиадоставка 2 раза в неделю', text: 'Bangkok → Vladivostok. Фрукты у нас через 48 часов после сбора.' },
+              { emoji: '🌿', title: 'Прямой импортёр без посредников', text: 'Покупаем у фермеров напрямую — поэтому и качество, и цена честные.' },
+              { emoji: '📦', title: 'Розница и опт', text: 'Один килограмм или несколько ящиков — для частных покупателей и бизнеса.' },
+              { emoji: '🎁', title: 'Подарочные наборы и букеты', text: 'Фруктовые корзины и боксы — на заказ с оформлением под ваш повод.' },
+              { emoji: '🤝', title: 'B2B для ресторанов и кафе', text: 'Постоянные поставки для кухонь паназиатской и фьюжн-кухни Владивостока.' },
+            ].map((b) => (
+              <div
+                key={b.title}
+                className="group bg-card border border-foreground/10 rounded-3xl p-7 hover:border-primary/50 hover:-translate-y-1 transition-all"
+              >
+                <span className="text-4xl block mb-4 group-hover:scale-110 transition-transform">{b.emoji}</span>
+                <h3 className="text-xl font-bold mb-2">{b.title}</h3>
+                <p className="text-muted-foreground leading-snug">{b.text}</p>
+              </div>
+            ))}
+            <div className="bg-primary text-primary-foreground rounded-3xl p-7 flex flex-col justify-center">
+              <p className="font-display font-bold text-3xl leading-tight">48 часов</p>
+              <p className="font-semibold mt-1">от сбора до вашего стола</p>
+            </div>
+          </div>
+
+          {/* Ассортимент */}
+          <div className="text-center space-y-4">
+            <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold">Наш ассортимент</p>
+            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-3 text-lg md:text-xl font-medium max-w-4xl mx-auto">
+              {['Манго', 'Маракуйя', 'Питахайя', 'Мангостин', 'Папайя', 'Авокадо', 'Ананас', 'Гуава', 'Лонган', 'Рамбутан'].map((fruit, i, arr) => (
+                <span key={fruit} className="flex items-center gap-3">
+                  {fruit}
+                  {i < arr.length - 1 && <span className="text-primary">·</span>}
+                </span>
+              ))}
+            </div>
+            <p className="text-muted-foreground">+ сезонные позиции</p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
