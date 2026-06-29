@@ -1,6 +1,8 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Input } from '@/components/ui/input';
+import { Textarea } from '@/components/ui/textarea';
 
 const facts = [
   { icon: 'Plane', text: 'Поставки напрямую из Таиланда' },
@@ -252,6 +254,71 @@ const Index = () => {
           </Accordion>
         </div>
       </section>
+
+      {/* Block 6 — CTA форма */}
+      <section className="relative py-20 md:py-28 border-t-2 border-primary/60">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(43_74%_52%/0.1),transparent_60%)]" />
+        <div className="container relative max-w-2xl mx-auto text-center space-y-8">
+          <div className="space-y-4">
+            <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl leading-tight">
+              Закажите свежие тайские фрукты прямо сейчас
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Следующая поставка — четверг и пятница. Оставьте заявку — перезвоним
+              в течение 15 минут и поможем с выбором.
+            </p>
+          </div>
+
+          <form className="bg-card border border-primary/20 rounded-3xl p-6 md:p-8 space-y-4 text-left">
+            <Input placeholder="Ваше имя" className="h-14 bg-background border-foreground/15 text-base rounded-xl" />
+            <Input placeholder="Телефон" type="tel" className="h-14 bg-background border-foreground/15 text-base rounded-xl" />
+            <Textarea
+              placeholder="Комментарий: что интересует — розница, опт, подарок?"
+              className="min-h-[100px] bg-background border-foreground/15 text-base rounded-xl resize-none"
+            />
+            <Button
+              type="submit"
+              size="lg"
+              className="w-full h-16 text-base md:text-lg font-bold rounded-xl gap-2 shadow-[0_10px_40px_-10px_hsl(43_74%_52%/0.6)]"
+            >
+              ПОЛУЧИТЬ ПРАЙС И ЗАПИСАТЬСЯ
+              <Icon name="ArrowRight" size={20} />
+            </Button>
+            <p className="text-center text-sm text-muted-foreground flex items-center justify-center gap-2">
+              <Icon name="Lock" size={14} /> Данные защищены. Не звоним без причины.
+            </p>
+          </form>
+
+          <div className="grid sm:grid-cols-2 gap-4">
+            <Button variant="outline" size="lg" className="h-14 rounded-xl border-foreground/25 text-base gap-2 hover:bg-foreground/5">
+              <Icon name="Send" size={18} /> Написать в Telegram
+            </Button>
+            <Button variant="outline" size="lg" className="h-14 rounded-xl border-foreground/25 text-base gap-2 hover:bg-foreground/5">
+              <Icon name="Phone" size={18} /> Позвонить сейчас
+            </Button>
+          </div>
+
+          <p className="text-muted-foreground italic max-w-lg mx-auto leading-relaxed">
+            Если сомневаетесь — просто спросите в Telegram. Мы живые люди, отвечаем
+            быстро и честно подскажем, что стоит брать в эту поставку.
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-foreground/10 py-10">
+        <div className="container max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-5 text-sm text-muted-foreground">
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🥭</span>
+            <span className="font-display font-bold text-2xl text-primary">Ягода</span>
+          </div>
+          <div className="flex items-center gap-2 hover:text-primary transition-colors cursor-pointer">
+            <Icon name="Send" size={18} /> Наш Telegram-канал
+          </div>
+          <p>© Ягода Владивосток 2026</p>
+        </div>
+      </footer>
     </div>
   );
 };
