@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -10,10 +11,86 @@ const facts = [
   { icon: 'MapPin', text: 'Владивосток, ДФО' },
 ];
 
+const navLinks = [
+  { label: 'О нас', href: '#about' },
+  { label: 'Преимущества', href: '#why' },
+  { label: 'Отзывы', href: '#reviews' },
+  { label: 'Вопросы', href: '#faq' },
+  { label: 'Контакты', href: '#order' },
+];
+
 const Index = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
-      <section className="relative min-h-screen flex items-center">
+      {/* Навигация */}
+      <header className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-background/80 border-b border-foreground/10">
+        <div className="container max-w-6xl mx-auto flex items-center justify-between h-16 md:h-18 py-3">
+          <a href="#top" className="flex items-center gap-2">
+            <span className="text-2xl">🥭</span>
+            <span className="font-display font-bold text-2xl text-primary">Ягода</span>
+          </a>
+
+          <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            {navLinks.map((l) => (
+              <a key={l.href} href={l.href} className="text-muted-foreground hover:text-primary transition-colors">
+                {l.label}
+              </a>
+            ))}
+          </nav>
+
+          <a href="#order" className="hidden md:block">
+            <Button className="rounded-full font-bold gap-2">
+              <Icon name="Phone" size={16} /> Заказать
+            </Button>
+          </a>
+
+          <button
+            className="md:hidden text-foreground p-2 -mr-2"
+            onClick={() => setMenuOpen(true)}
+            aria-label="Открыть меню"
+          >
+            <Icon name="Menu" size={28} />
+          </button>
+        </div>
+      </header>
+
+      {/* Бургер-меню */}
+      <div
+        className={`fixed inset-0 z-[60] md:hidden transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}
+      >
+        <div className="absolute inset-0 bg-background/80 backdrop-blur-sm" onClick={() => setMenuOpen(false)} />
+        <div
+          className={`absolute right-0 top-0 h-full w-72 max-w-[80%] bg-card border-l border-foreground/10 p-6 flex flex-col transition-transform duration-300 ${menuOpen ? 'translate-x-0' : 'translate-x-full'}`}
+        >
+          <div className="flex items-center justify-between mb-10">
+            <span className="font-display font-bold text-2xl text-primary">Ягода</span>
+            <button onClick={() => setMenuOpen(false)} aria-label="Закрыть меню" className="p-2 -mr-2">
+              <Icon name="X" size={26} />
+            </button>
+          </div>
+          <nav className="flex flex-col gap-2">
+            {navLinks.map((l) => (
+              <a
+                key={l.href}
+                href={l.href}
+                onClick={() => setMenuOpen(false)}
+                className="text-lg font-medium py-3 border-b border-foreground/10 hover:text-primary transition-colors"
+              >
+                {l.label}
+              </a>
+            ))}
+          </nav>
+          <a href="#order" onClick={() => setMenuOpen(false)} className="mt-8">
+            <Button className="w-full h-14 rounded-full font-bold gap-2">
+              <Icon name="Phone" size={18} /> Заказать фрукты
+            </Button>
+          </a>
+        </div>
+      </div>
+
+      <section id="top" className="relative min-h-screen flex items-center pt-16 md:pt-18">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(43_74%_52%/0.12),transparent_55%)]" />
         <div className="container relative grid lg:grid-cols-2 gap-10 lg:gap-12 items-center py-16 lg:py-24">
           {/* Text */}
@@ -65,7 +142,7 @@ const Index = () => {
       </section>
 
       {/* Block 2 — Знакомо? */}
-      <section className="bg-card/60 py-16 md:py-28">
+      <section id="about" className="bg-card/60 py-16 md:py-28 scroll-mt-16">
         <div className="container max-w-4xl mx-auto space-y-10 md:space-y-12">
           <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-center">Знакомо?</h2>
 
@@ -97,7 +174,7 @@ const Index = () => {
       </section>
 
       {/* Block 3 — Почему Ягода */}
-      <section className="py-16 md:py-28">
+      <section id="why" className="py-16 md:py-28 scroll-mt-16">
         <div className="container max-w-6xl mx-auto space-y-12 md:space-y-14">
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center max-w-4xl mx-auto leading-tight">
             «Ягода» — это когда фрукт успевает дозреть в&nbsp;тепле,
@@ -144,7 +221,7 @@ const Index = () => {
       </section>
 
       {/* Block 4 — Доверие */}
-      <section className="bg-card/60 py-16 md:py-28">
+      <section id="reviews" className="bg-card/60 py-16 md:py-28 scroll-mt-16">
         <div className="container max-w-6xl mx-auto space-y-12 md:space-y-14">
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center">
             Нам доверяют уже 6 лет
@@ -230,7 +307,7 @@ const Index = () => {
       </section>
 
       {/* Block 5 — FAQ */}
-      <section className="bg-[hsl(151_51%_8%)] py-16 md:py-28">
+      <section id="faq" className="bg-[hsl(151_51%_8%)] py-16 md:py-28 scroll-mt-16">
         <div className="container max-w-3xl mx-auto space-y-10 md:space-y-12">
           <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center">
             Частые вопросы
@@ -277,7 +354,7 @@ const Index = () => {
       </section>
 
       {/* Block 6 — CTA форма */}
-      <section className="relative py-16 md:py-28 border-t-2 border-primary/60">
+      <section id="order" className="relative py-16 md:py-28 border-t-2 border-primary/60 scroll-mt-16">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(43_74%_52%/0.1),transparent_60%)]" />
         <div className="container relative max-w-2xl mx-auto text-center space-y-8">
