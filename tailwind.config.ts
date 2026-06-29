@@ -19,8 +19,8 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				display: ['Pacifico', 'cursive'],
-				sans: ['Rubik', 'sans-serif'],
+				display: ['Cormorant', 'serif'],
+				sans: ['Montserrat', 'sans-serif'],
 			},
 			colors: {
 				border: 'hsl(var(--border))',
