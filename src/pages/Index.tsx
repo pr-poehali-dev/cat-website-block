@@ -208,6 +208,27 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Block 4.5 — Видео */}
+      <section className="py-20 md:py-28">
+        <div className="container max-w-5xl mx-auto space-y-10">
+          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+            Как это выглядит вживую
+          </h2>
+          <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-primary/20 shadow-2xl">
+            <div className="absolute -inset-6 bg-primary/15 blur-3xl -z-10" />
+            <video
+              src="https://cdn.poehali.dev/projects/84f58809-53c0-4552-ab21-736701cf7ab5/bucket/3b349a5d-8d6b-49a2-b775-574042f3ec28.mp4"
+              className="w-full aspect-video object-cover bg-card"
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+            />
+          </div>
+        </div>
+      </section>
+
       {/* Block 5 — FAQ */}
       <section className="bg-[hsl(151_51%_8%)] py-20 md:py-28">
         <div className="container max-w-3xl mx-auto space-y-12">
