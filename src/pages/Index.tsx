@@ -139,6 +139,71 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Block 4 — Доверие */}
+      <section className="bg-card/60 py-20 md:py-28">
+        <div className="container max-w-6xl mx-auto space-y-14">
+          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+            Нам доверяют уже 6 лет
+          </h2>
+
+          {/* Цифры */}
+          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+            {[
+              { num: '2×', label: 'поставки в неделю' },
+              { num: '6+', label: 'года на рынке' },
+              { num: '487+', label: 'заказов в этом году' },
+            ].map((s) => (
+              <div key={s.label}>
+                <p className="font-display font-bold text-5xl md:text-7xl text-primary leading-none">{s.num}</p>
+                <p className="text-muted-foreground mt-3 text-sm md:text-base">{s.label}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* Отзывы */}
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              {
+                name: 'Дарья Ч.',
+                city: 'Владивосток',
+                text: 'Покупаем здесь фрукты постоянно, магазин «Ягода» — наша любовь! Огромное спасибо, что возите настоящие тайские фрукты. Отдельно про манго: это просто бомба! Очень вкусные, сочные, ароматные — прямо будто в отпуске. Теперь только к вам 🙏',
+              },
+              {
+                name: 'Татьяна К.',
+                city: 'Владивосток',
+                text: 'Самые вкусные свежие экзотические фрукты ☺🤑 Часто хожу в этот магазин, товар наилучшего качества, продавцы приветливые, всегда заботливые 🤗 Советую всем ходить сюда 🤗',
+              },
+              {
+                name: 'Ангелина К.',
+                city: 'Владивосток',
+                text: 'Всё как всегда шикарно, фрукты самые вкусные и спелые. Качество на высоте. Очень рекомендую попробовать их замороженную продукцию, очень радует что в магазине большой ассортимент.',
+              },
+            ].map((r) => (
+              <div
+                key={r.name}
+                className="bg-background border border-primary/30 rounded-3xl p-7 flex flex-col gap-4"
+              >
+                <div className="flex gap-1 text-primary">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <Icon key={i} name="Star" size={18} className="fill-current" />
+                  ))}
+                </div>
+                <p className="text-muted-foreground leading-relaxed flex-1">{r.text}</p>
+                <div className="flex items-center gap-3 pt-2 border-t border-foreground/10">
+                  <div className="w-11 h-11 rounded-full bg-primary/20 text-primary flex items-center justify-center font-bold text-lg">
+                    {r.name[0]}
+                  </div>
+                  <div>
+                    <p className="font-semibold leading-none">{r.name}</p>
+                    <p className="text-xs text-muted-foreground mt-1">{r.city}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
