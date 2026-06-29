@@ -15,32 +15,32 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <section className="relative min-h-screen flex items-center">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_70%_30%,hsl(43_74%_52%/0.12),transparent_55%)]" />
-        <div className="container relative grid lg:grid-cols-2 gap-12 items-center py-16 lg:py-24">
+        <div className="container relative grid lg:grid-cols-2 gap-10 lg:gap-12 items-center py-16 lg:py-24">
           {/* Text */}
-          <div className="space-y-7 animate-fade-in">
-            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 text-primary text-sm font-semibold tracking-wide">
+          <div className="space-y-6 md:space-y-7 animate-fade-in order-2 lg:order-1">
+            <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-primary/40 text-primary text-xs sm:text-sm font-semibold tracking-wide">
               <Icon name="Leaf" size={16} /> Прямо с фермы, без посредников
             </span>
-            <h1 className="font-display font-bold text-5xl md:text-6xl xl:text-7xl leading-[1.05]">
+            <h1 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl xl:text-7xl leading-[1.08]">
               Тайские фрукты во&nbsp;Владивостоке —{' '}
               <span className="text-primary">прямо&nbsp;с&nbsp;фермы</span>
             </h1>
-            <p className="text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
               Авиадоставка из Таиланда 2 раза в неделю. Манго, маракуйя, питахайя,
               мангостин — всё приходит свежим, не через месяц.
             </p>
             <Button
               size="lg"
-              className="h-16 px-10 text-lg font-bold rounded-full shadow-[0_10px_40px_-10px_hsl(43_74%_52%/0.6)] hover:scale-[1.03] transition-transform gap-3"
+              className="w-full sm:w-auto h-14 md:h-16 px-8 md:px-10 text-base md:text-lg font-bold rounded-full shadow-[0_10px_40px_-10px_hsl(43_74%_52%/0.6)] hover:scale-[1.03] transition-transform gap-3"
             >
               Посмотреть ассортимент и цены
               <Icon name="ArrowRight" size={22} />
             </Button>
 
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-3 pt-4">
+            <div className="flex flex-wrap items-center gap-x-5 gap-y-3 pt-2 md:pt-4">
               {facts.map((f, i) => (
                 <div key={f.text} className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
-                  <Icon name={f.icon} size={18} className="text-primary" />
+                  <Icon name={f.icon} size={18} className="text-primary shrink-0" />
                   <span>{f.text}</span>
                   {i < facts.length - 1 && <span className="hidden md:inline mx-1 text-primary/40">•</span>}
                 </div>
@@ -49,15 +49,15 @@ const Index = () => {
           </div>
 
           {/* Image */}
-          <div className="relative animate-fade-in" style={{ animationDelay: '0.15s' }}>
+          <div className="relative animate-fade-in order-1 lg:order-2" style={{ animationDelay: '0.15s' }}>
             <div className="absolute -inset-6 bg-primary/20 rounded-[3rem] blur-3xl" />
             <img
               src="https://cdn.poehali.dev/projects/84f58809-53c0-4552-ab21-736701cf7ab5/files/4e046845-216b-428d-8d32-4c7c6d136816.jpg"
               alt="Разрезанные тропические фрукты"
-              className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/5] lg:aspect-square ring-1 ring-primary/20"
+              className="relative rounded-[2rem] shadow-2xl w-full object-cover aspect-[4/3] sm:aspect-[4/5] lg:aspect-square ring-1 ring-primary/20"
             />
-            <div className="absolute -bottom-5 left-6 bg-card/90 backdrop-blur border border-primary/20 rounded-2xl px-5 py-3 shadow-xl">
-              <p className="text-primary font-bold text-lg leading-none">2 раза в неделю</p>
+            <div className="absolute -bottom-4 left-4 sm:left-6 bg-card/90 backdrop-blur border border-primary/20 rounded-2xl px-4 sm:px-5 py-3 shadow-xl">
+              <p className="text-primary font-bold text-base sm:text-lg leading-none">2 раза в неделю</p>
               <p className="text-xs text-muted-foreground mt-1">свежие авиапоставки</p>
             </div>
           </div>
@@ -65,11 +65,11 @@ const Index = () => {
       </section>
 
       {/* Block 2 — Знакомо? */}
-      <section className="bg-card/60 py-20 md:py-28">
-        <div className="container max-w-4xl mx-auto space-y-12">
-          <h2 className="font-display font-bold text-5xl md:text-6xl text-center">Знакомо?</h2>
+      <section className="bg-card/60 py-16 md:py-28">
+        <div className="container max-w-4xl mx-auto space-y-10 md:space-y-12">
+          <h2 className="font-display font-bold text-4xl sm:text-5xl md:text-6xl text-center">Знакомо?</h2>
 
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-3 gap-4 md:gap-5">
             {[
               { emoji: '😟', text: '«В супермаркете манго лежит неделями — пластиковое, безвкусное»' },
               { emoji: '😤', text: '«Заказал с маркетплейса — пришло недозрелое, ещё и помятое»' },
@@ -77,19 +77,19 @@ const Index = () => {
             ].map((card) => (
               <div
                 key={card.emoji}
-                className="bg-background/50 border border-foreground/10 rounded-3xl p-7 flex flex-col gap-4"
+                className="bg-background/50 border border-foreground/10 rounded-3xl p-6 md:p-7 flex flex-col gap-4"
               >
-                <span className="text-5xl">{card.emoji}</span>
-                <p className="text-muted-foreground text-lg leading-snug">{card.text}</p>
+                <span className="text-4xl md:text-5xl">{card.emoji}</span>
+                <p className="text-muted-foreground text-base md:text-lg leading-snug">{card.text}</p>
               </div>
             ))}
           </div>
 
           <div className="text-center space-y-2">
-            <p className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
+            <p className="text-xl sm:text-2xl md:text-3xl font-bold text-foreground leading-snug">
               Мы решаем эти три проблемы одновременно.
             </p>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Потому что возим сами — напрямую, самолётом, дважды в неделю.
             </p>
           </div>
@@ -97,14 +97,14 @@ const Index = () => {
       </section>
 
       {/* Block 3 — Почему Ягода */}
-      <section className="py-20 md:py-28">
-        <div className="container max-w-6xl mx-auto space-y-14">
-          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center max-w-4xl mx-auto leading-tight">
+      <section className="py-16 md:py-28">
+        <div className="container max-w-6xl mx-auto space-y-12 md:space-y-14">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center max-w-4xl mx-auto leading-tight">
             «Ягода» — это когда фрукт успевает дозреть в&nbsp;тепле,
             а&nbsp;не&nbsp;в&nbsp;контейнере
           </h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {[
               { emoji: '✈️', title: 'Авиадоставка 2 раза в неделю', text: 'Bangkok → Vladivostok. Фрукты у нас через 48 часов после сбора.' },
               { emoji: '🌿', title: 'Прямой импортёр без посредников', text: 'Покупаем у фермеров напрямую — поэтому и качество, и цена честные.' },
@@ -114,14 +114,14 @@ const Index = () => {
             ].map((b) => (
               <div
                 key={b.title}
-                className="group bg-card border border-foreground/10 rounded-3xl p-7 hover:border-primary/50 hover:-translate-y-1 transition-all"
+                className="group bg-card border border-foreground/10 rounded-3xl p-6 md:p-7 hover:border-primary/50 hover:-translate-y-1 transition-all"
               >
                 <span className="text-4xl block mb-4 group-hover:scale-110 transition-transform">{b.emoji}</span>
-                <h3 className="text-xl font-bold mb-2">{b.title}</h3>
+                <h3 className="text-lg md:text-xl font-bold mb-2">{b.title}</h3>
                 <p className="text-muted-foreground leading-snug">{b.text}</p>
               </div>
             ))}
-            <div className="bg-primary text-primary-foreground rounded-3xl p-7 flex flex-col justify-center">
+            <div className="bg-primary text-primary-foreground rounded-3xl p-6 md:p-7 flex flex-col justify-center">
               <p className="font-display font-bold text-3xl leading-tight">48 часов</p>
               <p className="font-semibold mt-1">от сбора до вашего стола</p>
             </div>
@@ -130,7 +130,7 @@ const Index = () => {
           {/* Ассортимент */}
           <div className="text-center space-y-4">
             <p className="text-sm uppercase tracking-[0.2em] text-primary font-semibold">Наш ассортимент</p>
-            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-3 text-lg md:text-xl font-medium max-w-4xl mx-auto">
+            <div className="flex flex-wrap justify-center items-center gap-x-3 gap-y-2 md:gap-y-3 text-base sm:text-lg md:text-xl font-medium max-w-4xl mx-auto">
               {['Манго', 'Маракуйя', 'Питахайя', 'Мангостин', 'Папайя', 'Авокадо', 'Ананас', 'Гуава', 'Лонган', 'Рамбутан'].map((fruit, i, arr) => (
                 <span key={fruit} className="flex items-center gap-3">
                   {fruit}
@@ -144,28 +144,28 @@ const Index = () => {
       </section>
 
       {/* Block 4 — Доверие */}
-      <section className="bg-card/60 py-20 md:py-28">
-        <div className="container max-w-6xl mx-auto space-y-14">
-          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+      <section className="bg-card/60 py-16 md:py-28">
+        <div className="container max-w-6xl mx-auto space-y-12 md:space-y-14">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center">
             Нам доверяют уже 6 лет
           </h2>
 
           {/* Цифры */}
-          <div className="grid grid-cols-3 gap-6 max-w-3xl mx-auto text-center">
+          <div className="grid grid-cols-3 gap-3 sm:gap-6 max-w-3xl mx-auto text-center">
             {[
               { num: '2×', label: 'поставки в неделю' },
               { num: '6+', label: 'года на рынке' },
               { num: '487+', label: 'заказов в этом году' },
             ].map((s) => (
               <div key={s.label}>
-                <p className="font-display font-bold text-5xl md:text-7xl text-primary leading-none">{s.num}</p>
-                <p className="text-muted-foreground mt-3 text-sm md:text-base">{s.label}</p>
+                <p className="font-display font-bold text-4xl sm:text-5xl md:text-7xl text-primary leading-none">{s.num}</p>
+                <p className="text-muted-foreground mt-2 md:mt-3 text-xs sm:text-sm md:text-base">{s.label}</p>
               </div>
             ))}
           </div>
 
           {/* Отзывы */}
-          <div className="grid md:grid-cols-3 gap-5">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
             {[
               {
                 name: 'Дарья Ч.',
@@ -185,7 +185,7 @@ const Index = () => {
             ].map((r) => (
               <div
                 key={r.name}
-                className="bg-background border border-primary/30 rounded-3xl p-7 flex flex-col gap-4"
+                className="bg-background border border-primary/30 rounded-3xl p-6 md:p-7 flex flex-col gap-4 last:sm:col-span-2 last:lg:col-span-1"
               >
                 <div className="flex gap-1 text-primary">
                   {Array.from({ length: 5 }).map((_, i) => (
@@ -209,9 +209,9 @@ const Index = () => {
       </section>
 
       {/* Block 4.5 — Видео */}
-      <section className="py-20 md:py-28">
-        <div className="container max-w-5xl mx-auto space-y-10">
-          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+      <section className="py-16 md:py-28">
+        <div className="container max-w-5xl mx-auto space-y-8 md:space-y-10">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center">
             Как это выглядит вживую
           </h2>
           <div className="relative rounded-[2rem] overflow-hidden ring-1 ring-primary/20 shadow-2xl">
@@ -230,9 +230,9 @@ const Index = () => {
       </section>
 
       {/* Block 5 — FAQ */}
-      <section className="bg-[hsl(151_51%_8%)] py-20 md:py-28">
-        <div className="container max-w-3xl mx-auto space-y-12">
-          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+      <section className="bg-[hsl(151_51%_8%)] py-16 md:py-28">
+        <div className="container max-w-3xl mx-auto space-y-10 md:space-y-12">
+          <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl text-center">
             Частые вопросы
           </h2>
 
@@ -262,9 +262,9 @@ const Index = () => {
               <AccordionItem
                 key={i}
                 value={`item-${i}`}
-                className="bg-card border border-foreground/10 rounded-2xl px-6 data-[state=open]:border-primary/40"
+                className="bg-card border border-foreground/10 rounded-2xl px-5 md:px-6 data-[state=open]:border-primary/40"
               >
-                <AccordionTrigger className="text-left text-lg font-bold text-foreground hover:no-underline py-5">
+                <AccordionTrigger className="text-left text-base md:text-lg font-bold text-foreground hover:no-underline py-4 md:py-5">
                   {item.q}
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5">
@@ -277,15 +277,15 @@ const Index = () => {
       </section>
 
       {/* Block 6 — CTA форма */}
-      <section className="relative py-20 md:py-28 border-t-2 border-primary/60">
+      <section className="relative py-16 md:py-28 border-t-2 border-primary/60">
         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,hsl(43_74%_52%/0.1),transparent_60%)]" />
         <div className="container relative max-w-2xl mx-auto text-center space-y-8">
           <div className="space-y-4">
-            <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl leading-tight">
+            <h2 className="font-display font-bold text-3xl sm:text-4xl md:text-5xl xl:text-6xl leading-tight">
               Закажите свежие тайские фрукты прямо сейчас
             </h2>
-            <p className="text-lg text-muted-foreground">
+            <p className="text-base md:text-lg text-muted-foreground">
               Следующая поставка — четверг и пятница. Оставьте заявку — перезвоним
               в течение 15 минут и поможем с выбором.
             </p>
