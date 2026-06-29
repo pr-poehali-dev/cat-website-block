@@ -60,6 +60,38 @@ const Index = () => {
           </div>
         </div>
       </section>
+
+      {/* Block 2 — Знакомо? */}
+      <section className="bg-card/60 py-20 md:py-28">
+        <div className="container max-w-4xl mx-auto space-y-12">
+          <h2 className="font-display font-bold text-5xl md:text-6xl text-center">Знакомо?</h2>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {[
+              { emoji: '😟', text: '«В супермаркете манго лежит неделями — пластиковое, безвкусное»' },
+              { emoji: '😤', text: '«Заказал с маркетплейса — пришло недозрелое, ещё и помятое»' },
+              { emoji: '😕', text: '«Хотел подарить корзину с экзотикой, но нигде нет хорошего выбора»' },
+            ].map((card) => (
+              <div
+                key={card.emoji}
+                className="bg-background/50 border border-foreground/10 rounded-3xl p-7 flex flex-col gap-4"
+              >
+                <span className="text-5xl">{card.emoji}</span>
+                <p className="text-muted-foreground text-lg leading-snug">{card.text}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center space-y-2">
+            <p className="text-2xl md:text-3xl font-bold text-foreground leading-snug">
+              Мы решаем эти три проблемы одновременно.
+            </p>
+            <p className="text-lg text-muted-foreground">
+              Потому что возим сами — напрямую, самолётом, дважды в неделю.
+            </p>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
