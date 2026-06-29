@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 const facts = [
   { icon: 'Plane', text: 'Поставки напрямую из Таиланда' },
@@ -202,6 +203,53 @@ const Index = () => {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Block 5 — FAQ */}
+      <section className="bg-[hsl(151_51%_8%)] py-20 md:py-28">
+        <div className="container max-w-3xl mx-auto space-y-12">
+          <h2 className="font-display font-bold text-4xl md:text-5xl xl:text-6xl text-center">
+            Частые вопросы
+          </h2>
+
+          <Accordion type="single" collapsible className="space-y-4">
+            {[
+              {
+                q: 'Как часто бывают поставки?',
+                a: 'Два раза в неделю — четверг и пятница. В день поставки фрукты доступны с утра. Следите за обновлениями в нашем Telegram-канале.',
+              },
+              {
+                q: 'Можно ли заказать незрелые фрукты — чтобы дозрели дома?',
+                a: 'Да, мы отмечаем степень зрелости для каждой позиции. Укажите при заказе — подберём нужную спелость.',
+              },
+              {
+                q: 'Есть ли минимальный заказ?',
+                a: 'Для розницы — нет. Для оптовых покупателей (рестораны, магазины) минимальный заказ от 5 кг по позиции.',
+              },
+              {
+                q: 'Как долго хранятся фрукты после получения?',
+                a: 'Манго, авокадо — 3–5 дней. Маракуйя, питахайя — 5–7 дней. Рамбутан, лонган — до 10 дней в холодильнике.',
+              },
+              {
+                q: 'Делаете ли доставку по Владивостоку?',
+                a: 'Да, курьерская доставка по Владивостоку. Самовывоз также доступен — г. Владивосток, ул. Жигура, д. 30.',
+              },
+            ].map((item, i) => (
+              <AccordionItem
+                key={i}
+                value={`item-${i}`}
+                className="bg-card border border-foreground/10 rounded-2xl px-6 data-[state=open]:border-primary/40"
+              >
+                <AccordionTrigger className="text-left text-lg font-bold text-foreground hover:no-underline py-5">
+                  {item.q}
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground text-base leading-relaxed pb-5">
+                  {item.a}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </section>
     </div>
